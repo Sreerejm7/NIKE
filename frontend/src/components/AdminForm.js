@@ -72,7 +72,7 @@ const AdminForm = () => {
     });
     try {
       const token = localStorage.getItem('AdminToken')
-      const response = await axios.post('http://localhost:4500/create', form, {
+      const response = await axios.post('https://nike-swe2.onrender.com/create', form, {
         headers: { 'Content-Type': 'multipart/form-data' , Authorization : `Bearer ${token}` },
       });
       if (response) {
