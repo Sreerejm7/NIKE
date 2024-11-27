@@ -22,7 +22,7 @@ const MakeAdminPage = () => {
   const handleSubmit= async(e)=>{
     e.preventDefault()
     try {
-      const url = "http://localhost:4500/makeadmin"
+      const url = "https://nike-swe2.onrender.com/makeadmin"
       const token = localStorage.getItem('AdminToken')
       const response = await axios.post(url,loginData,{headers :{Authorization :`Bearer ${token}`}})
       if(response){
