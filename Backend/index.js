@@ -21,7 +21,9 @@ app.use(expressFileUpload({
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin:'https://nike-2-ndy4.onrender.com'
+}))
 
 
 app.use('/',route)
