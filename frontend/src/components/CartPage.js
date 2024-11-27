@@ -13,7 +13,7 @@ const CartPage = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const url = "http://localhost:4500/fetchcart";
+      const url = "https://nike-swe2.onrender.com/fetchcart";
       const token = localStorage.getItem("AdminToken") || localStorage.getItem('UserToken');
       if (!token) {
         handleerror("No Token Provided");
@@ -38,7 +38,7 @@ const CartPage = () => {
   const handleRemoveFromCart = async(productId) => {
     try {
       const token = localStorage.getItem('UserToken')
-      const response=await axios.delete(`http://localhost:4500/deletecart/${productId}`,{headers :{Authorization : `Bearer ${token}`}})
+      const response=await axios.delete(`https://nike-swe2.onrender.com/deletecart/${productId}`,{headers :{Authorization : `Bearer ${token}`}})
       if(response){
         setProducts((prevProducts) => prevProducts.filter((item) => item._id !== productId));
       }
@@ -68,7 +68,7 @@ const CartPage = () => {
     setCount((prev)=>({...prev,[productId]:Number(value)}))
     try {
       const token=localStorage.getItem('UserToken')
-      const response=await axios.put(`http://localhost:4500/updatecart/${productId}`,{quantity:newquantity},{headers : {Authorization :`Bearer ${token}`}})
+      const response=await axios.put(`https://nike-swe2.onrender.com/updatecart/${productId}`,{quantity:newquantity},{headers : {Authorization :`Bearer ${token}`}})
     } catch (error) {
       handleerror(error.response.data.message)
     }
@@ -81,7 +81,7 @@ const CartPage = () => {
   const clearcart=async()=>{
     try {
       const token = localStorage.getItem('UserToken')
-      const response = await axios.delete('http://localhost:4500/clearcart',{headers :{Authorization :`Bearer ${token}`}})
+      const response = await axios.delete('https://nike-swe2.onrender.com/clearcart',{headers :{Authorization :`Bearer ${token}`}})
     } catch (error) {
       handleerror(error.response.data.message)
     }
