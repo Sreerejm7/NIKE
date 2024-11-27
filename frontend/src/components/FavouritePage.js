@@ -14,7 +14,7 @@ const FavouritePage = () => {
 
   const navigate = useNavigate()
   const fetch = async ()=>{
-    const url = 'http://localhost:4500/fetchfavourite'
+    const url = 'https://nike-swe2.onrender.com/fetchfavourite'
     const token = localStorage.getItem("UserToken")
     if(!token){
       handleerror("No Token Provided")
@@ -38,7 +38,7 @@ const FavouritePage = () => {
   const handleAddtoCart = async (Id , productId,selectedSize)=>{
     try {
       const token = localStorage.getItem('UserToken')
-      const url = `http://localhost:4500/addtocart/${productId}`
+      const url = `https://nike-swe2.onrender.com/addtocart/${productId}`
       const response = await axios.post(url,{ size:selectedSize},{headers :{Authorization :`Bearer ${token}`}})
       if(response){
         
@@ -61,7 +61,7 @@ const FavouritePage = () => {
         return;
       }
   
-      const url = `http://localhost:4500/deletefavourite/${productId}`;
+      const url = `https://nike-swe2.onrender.com/deletefavourite/${productId}`;
       const response = await axios.delete(url, { headers: { Authorization: `Bearer ${token}` } });
   
       if (response) {
