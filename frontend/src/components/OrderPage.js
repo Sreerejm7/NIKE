@@ -10,7 +10,7 @@ const OrderPage = () => {
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem("AdminToken");
-      const response = await axios.get("http://localhost:4500/product/fetch", {
+      const response = await axios.get("https://nike-swe2.onrender.com/product/fetch", {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response) {
@@ -28,7 +28,7 @@ const OrderPage = () => {
     try {
       const token = localStorage.getItem("AdminToken");
       const response = await axios.put(
-        `http://localhost:4500/order/update/${id}/product/${productId}`,
+        `https://nike-swe2.onrender.com/order/update/${id}/product/${productId}`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -45,7 +45,7 @@ const OrderPage = () => {
   const handleDelete = async (id,productId)=>{
     try {
       const token  = localStorage.getItem('AdminToken')
-      const response = await axios.delete(`http://localhost:4500/order/delete/${id}/product/${productId}`,{headers : {Authorization : `Bearer ${token}`}})
+      const response = await axios.delete(`https://nike-swe2.onrender.com/order/delete/${id}/product/${productId}`,{headers : {Authorization : `Bearer ${token}`}})
       if (response.status === 200) {
         fetchOrders();
       }
