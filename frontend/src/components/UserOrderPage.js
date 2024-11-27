@@ -11,7 +11,7 @@ const UserOrderPage = () => {
     try {
       const token = localStorage.getItem('UserToken')
       const response = await axios.get(
-        `http://localhost:4500/order/fetchbyuser`,
+        `https://nike-swe2.onrender.com/order/fetchbyuser`,
         { headers: { Authorization: `Bearer ${token}` } }
       )
       if (response) {
@@ -36,7 +36,7 @@ const UserOrderPage = () => {
     try {
       const token = localStorage.getItem('UserToken')
       const response = await axios.put(
-        `http://localhost:4500/order/update/${id}/product/${productId}`,
+        `https://nike-swe2.onrender.com/order/update/${id}/product/${productId}`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       )
