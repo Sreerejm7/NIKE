@@ -123,7 +123,7 @@ useEffect(() => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4500/getallproducts"
+        "https://nike-swe2.onrender.com/getallproducts"
       );
       const sorted=response.data.products.sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt))
       setProducts(sorted.slice(0, 5));
