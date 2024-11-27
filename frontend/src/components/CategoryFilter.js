@@ -41,7 +41,7 @@ function CategoryFilter() {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4500/getallproducts"
+          "https://nike-swe2.onrender.com/getallproducts"
         );
         setShoe(response.data.products);
         setFilteredShoe(response.data.products);
