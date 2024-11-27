@@ -7,12 +7,12 @@
 .footer-container {
   display: flex;
   gap: 20px;
-  max-width: 1200px; /* Max width for better centering */
+  max-width: 1200px; 
   width: 100%;
   padding: 20px;
 }
 
-/* Default layout for larger screens */
+
 .footer-div {
   width: 300px;
 }
@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: column;
   padding: 0;
-  list-style: none; /* Remove default list styling */
+  list-style: none; 
 }
 
 .footer-div > ul > p {
@@ -42,23 +42,23 @@
   padding-right: 20px;
 }
 
-/* Responsive layout for screens less than 960px */
+
 @media (max-width: 960px) {
   .footer {
     justify-content: flex-start;
-    padding-left: 20px; /* Use padding instead of margin for consistency */
+    padding-left: 20px; 
   }
 
   .footer-container {
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the left */
+    flex-direction: column; 
+    align-items: flex-start; 
   }
 
   .footer-div,
   .footer-div-loc {
-    width: 100%; /* Take full width in column layout */
+    width: 100%; 
     text-align: left;
-    padding-right: 0; /* Remove padding-right to align with the container */
+    padding-right: 0; 
   }
 
   .footer-div-loc {
