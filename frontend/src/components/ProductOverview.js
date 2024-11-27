@@ -18,7 +18,7 @@ const ProductOverview = ({ id }) => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:4500/getproduct/${id}`);
+        const response = await axios.get(`https://nike-swe2.onrender.com/getproduct/${id}`);
         const productData = response.data.products;
         setProduct(productData);
         if (productData.image?.length > 0) {
@@ -48,7 +48,7 @@ const ProductOverview = ({ id }) => {
     try {
       const token = localStorage.getItem('UserToken')
       const response = await axios.post(
-        `http://localhost:4500/addtocart/${id}`,
+        `https://nike-swe2.onrender.com/addtocart/${id}`,
         { size: selectedSize },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -74,7 +74,7 @@ const ProductOverview = ({ id }) => {
 
       try {
         const token = localStorage.getItem('UserToken')
-        const url = `http://localhost:4500/addtofavourite/${id}`
+        const url = `https://nike-swe2.onrender.com/addtofavourite/${id}`
         const response = await axios.post(url,{size:selectedSize},{headers :{Authorization : `Bearer ${token}`}})
         if(response){
           handlesuccess(response.data.message)
