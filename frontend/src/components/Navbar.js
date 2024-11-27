@@ -13,7 +13,7 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const loginoption = ["Find a Store", "Help", "Join us", "Login"];
   const loginuseroption = ["Find a Store", "Help", "Hi"];
-  const adminoption = ["Add New Product", "Make Admin", 'Orders', "Hi"]
+  const adminoption = ["Add New Product", "Make Admin", "Orders", "Hi"];
   const [fname, setFname] = useState("");
 
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ function Navbar() {
   useEffect(() => {
     const token = localStorage.getItem("UserToken");
     const adminToken = localStorage.getItem("AdminToken");
-  
+
     if (adminToken) {
       setUser("admin");
     } else if (token) {
@@ -34,13 +34,13 @@ function Navbar() {
     navigate("/cart");
   };
 
-  const handleFavourite = ()=>{
-    navigate('/favourite')
-  }
+  const handleFavourite = () => {
+    navigate("/favourite");
+  };
 
-  const handleOrder = ()=>{
-    navigate('/user/orders')
-  }
+  const handleOrder = () => {
+    navigate("/user/orders");
+  };
 
   const handleSignup = () => {
     navigate("/signup");
@@ -50,26 +50,26 @@ function Navbar() {
     navigate("/signin");
   };
 
-
   const handleLogout = () => {
-    localStorage.removeItem("AdminToken") || localStorage.removeItem("UserToken");
+    localStorage.removeItem("AdminToken") ||
+      localStorage.removeItem("UserToken");
     localStorage.removeItem("fname");
     setUser(false);
   };
 
   setTimeout(() => {
-    localStorage.removeItem("AdminToken") || localStorage.removeItem("UserToken");
+    localStorage.removeItem("AdminToken") ||
+      localStorage.removeItem("UserToken");
     localStorage.removeItem("fname");
     setUser(false);
   }, 3600000);
-  const HandleAddnew =()=>{
-    navigate('/admin/addproduct')
-  }
+  const HandleAddnew = () => {
+    navigate("/admin/addproduct");
+  };
 
-  const HandleAdmins = ()=>{
-    navigate('/create/admin')
-  }
-
+  const HandleAdmins = () => {
+    navigate("/create/admin");
+  };
 
   function showSidebar() {
     const sidebar = document.querySelector(".sidebar");
@@ -105,16 +105,16 @@ function Navbar() {
     navigate("/landingpage");
   };
 
-  const handleOrders = ()=>{
-    navigate('/user/orders')
-  }
+  const handleOrders = () => {
+    navigate("/user/orders");
+  };
 
-  const handleBag = ()=>{
-    navigate('/cart')
-  }
- const Handleorderses=()=>{
-  navigate('/admin/orders/view')
- }
+  const handleBag = () => {
+    navigate("/cart");
+  };
+  const Handleorderses = () => {
+    navigate("/admin/orders/view");
+  };
 
   return (
     <nav className="navbar">
@@ -138,65 +138,72 @@ function Navbar() {
           </svg>
         </div>
         <div className="first-right">
-    {user ? (
-      <>
-        {(user === "admin" ? adminoption : loginuseroption).map((opt, index) => (
-          <div className="user-logined" key={index}>
-            {opt === "Hi" ? (
-              <div className="hi-menu">
-                <p>
-                  {opt}, {fname}  {<FaUser/>}
-                </p>
-                <div className="hi-submenu">
-                  <h5>Account</h5>
-                  {user === "admin" ? (
-                    <>
-                      <p>Admin Panel</p>
-                      <p onClick={handleLogout}>Logout</p>
-                    </>
+          {user ? (
+            <>
+              {(user === "admin" ? adminoption : loginuseroption).map(
+                (opt, index) => (
+                  <div className="user-logined" key={index}>
+                    {opt === "Hi" ? (
+                      <div className="hi-menu">
+                        <p>
+                          {opt}, {fname} {<FaUser />}
+                        </p>
+                        <div className="hi-submenu">
+                          <h5>Account</h5>
+                          {user === "admin" ? (
+                            <>
+                              <p>Admin Panel</p>
+                              <p onClick={handleLogout}>Logout</p>
+                            </>
+                          ) : (
+                            <>
+                              <p>Profile</p>
+                              <p onClick={handleOrder}>Orders</p>
+                              <p onClick={handleFavourite}>Favourites</p>
+                              <p onClick={handleLogout}>Logout</p>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    ) : opt === "Add New Product" ? (
+                      <p onClick={HandleAddnew}>{opt}</p>
+                    ) : opt === "Make Admin" ? (
+                      <p onClick={HandleAdmins}>{opt}</p>
+                    ) : opt === "Orders" ? (
+                      <p onClick={Handleorderses}>{opt}</p>
+                    ) : (
+                      <p>{opt}</p>
+                    )}
+                  </div>
+                )
+              )}
+            </>
+          ) : (
+            <>
+              {loginoption.map((opt, index) => (
+                <div className="user-logined" key={index}>
+                  {opt === "Help" ? (
+                    <div className="help-menu">
+                      <p>{opt}</p>
+                      <div className="submenu">
+                        <p>Order Status</p>
+                        <p>Dispatch</p>
+                        <p>Delivery</p>
+                        <p>Date of Arrival</p>
+                      </div>
+                    </div>
+                  ) : opt === "Join us" ? (
+                    <p onClick={handleSignup}>{opt}</p>
+                  ) : opt === "Login" ? (
+                    <p onClick={handleSignin}>{opt}</p>
                   ) : (
-                    <>
-                      <p>Profile</p>
-                      <p onClick={handleOrder}>Orders</p>
-                      <p onClick={handleFavourite}>Favourites</p>
-                      <p onClick={handleLogout}>Logout</p>
-                    </>
+                    <p>{opt}</p>
                   )}
                 </div>
-              </div>
-            ) : opt ==='Add New Product' ? (<p onClick={HandleAddnew}>{opt}</p>)
-              : opt ==='Make Admin' ? (<p onClick={HandleAdmins}>{opt}</p>)
-            : opt ==='Orders' ? (<p onClick={Handleorderses}>{opt}</p>):
-            (<p>{opt}</p>)}
-          </div>
-        ))}
-      </>
-    ) : (
-      <>
-        {loginoption.map((opt, index) => (
-          <div className="user-logined" key={index}>
-            {opt === "Help" ? (
-              <div className="help-menu">
-                <p>{opt}</p>
-                <div className="submenu">
-                  <p>Order Status</p>
-                  <p>Dispatch</p>
-                  <p>Delivery</p>
-                  <p>Date of Arrival</p>
-                </div>
-              </div>
-            ) : opt === "Join us" ? (
-              <p onClick={handleSignup}>{opt}</p>
-            ) : opt === "Login" ? (
-              <p onClick={handleSignin}>{opt}</p>
-            ) : (
-              <p>{opt}</p>
-            )}
-          </div>
-        ))}
-      </>
-    )}
-  </div>
+              ))}
+            </>
+          )}
+        </div>
       </div>
 
       <div className="middle">
@@ -221,8 +228,10 @@ function Navbar() {
             />
           </div>
           <svg
-          onClick={handleFavourite}
-          style={{display:localStorage.getItem('AdminToken') ? "none":"block"}}
+            onClick={handleFavourite}
+            style={{
+              display: localStorage.getItem("AdminToken") ? "none" : "block",
+            }}
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
             viewBox="0 -960 960 960"
@@ -233,7 +242,9 @@ function Navbar() {
           </svg>
           <svg
             onClick={handleCart}
-            style={{display:localStorage.getItem('AdminToken') ? "none":"block"}}
+            style={{
+              display: localStorage.getItem("AdminToken") ? "none" : "block",
+            }}
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
             viewBox="0 -960 960 960"
@@ -341,15 +352,45 @@ function Navbar() {
           </p>
         </div>
         <div className="sidebar-buttons">
-          <button className="join-us" style={{display: localStorage.getItem('UserToken') || localStorage.getItem('AdminToken') ? 'none': 'block' }} onClick={handleSignup}>
+          <button
+            className="join-us"
+            style={{
+              display:
+                localStorage.getItem("UserToken") ||
+                localStorage.getItem("AdminToken")
+                  ? "none"
+                  : "block",
+            }}
+            onClick={handleSignup}
+          >
             Join Us
           </button>
-          <button className="sign-in" style={{display: localStorage.getItem('UserToken') || localStorage.getItem('AdminToken') ? 'none':'block' }} onClick={handleSignin}>
+          <button
+            className="sign-in"
+            style={{
+              display:
+                localStorage.getItem("UserToken") ||
+                localStorage.getItem("AdminToken")
+                  ? "none"
+                  : "block",
+            }}
+            onClick={handleSignin}
+          >
             Sign In
           </button>
-          <button className="sign-in" style={{display: localStorage.getItem('UserToken') || localStorage.getItem('AdminToken') ? 'block': 'none' }} onClick={handleLogout}>
+          <button
+            className="sign-in"
+            style={{
+              display:
+                localStorage.getItem("UserToken") ||
+                localStorage.getItem("AdminToken")
+                  ? "block"
+                  : "none",
+            }}
+            onClick={handleLogout}
+          >
             Logout
-        </button>
+          </button>
         </div>
         <div className="user-item-wrapper">
           <div className="help">
@@ -374,7 +415,7 @@ function Navbar() {
             <h6>Help</h6>
           </div>
           <div className="bag" onClick={handleBag}>
-            <svg 
+            <svg
               aria-hidden="true"
               focusable="false"
               viewBox="0 0 24 24"
@@ -392,7 +433,7 @@ function Navbar() {
             <h6>Bag</h6>
           </div>
           <div className="orders" onClick={handleOrders}>
-            <svg 
+            <svg
               aria-hidden="true"
               class="nav-icon"
               focusable="false"
@@ -565,10 +606,11 @@ function Navbar() {
             <h5>Kids</h5>
             <ul>
               <li>New Arrivals</li>
-              <li>Item 2</li>
-              <li>Item 3</li>
-              <li>Item 4</li>
-              <li>Item 5</li>
+              <li>Bestsellers</li>
+              <li>Shoes</li>
+              <li>Clothing</li>
+              <li>Shop By Sport</li>
+              <li>Accessories and Equipment</li>
             </ul>
           </>
         ) : cat === "sale" ? (
@@ -597,11 +639,12 @@ function Navbar() {
             </div>
             <h5>Sale</h5>
             <ul>
-              <li>Item 1</li>
-              <li>Item 2</li>
-              <li>Item 3</li>
-              <li>Item 4</li>
-              <li>Item 5</li>
+              <li>New Arrivals</li>
+              <li>Bestsellers</li>
+              <li>Shoes</li>
+              <li>Clothing</li>
+              <li>Shop By Sport</li>
+              <li>Accessories and Equipment</li>
             </ul>
           </>
         ) : cat === "snkrs" ? (
@@ -630,11 +673,12 @@ function Navbar() {
             </div>
             <h5>SNKRS</h5>
             <ul>
-              <li>Item 1</li>
-              <li>Item 2</li>
-              <li>Item 3</li>
-              <li>Item 4</li>
-              <li>Item 5</li>
+              <li>New Arrivals</li>
+              <li>Bestsellers</li>
+              <li>Shoes</li>
+              <li>Clothing</li>
+              <li>Shop By Sport</li>
+              <li>Accessories and Equipment</li>
             </ul>
           </>
         ) : (
