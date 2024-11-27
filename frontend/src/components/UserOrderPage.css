@@ -1,0 +1,50 @@
+.userorder{
+  width: 100%;
+}
+
+.user-order-container{
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.order-image{
+  width: 20%;
+  
+}
+
+.user-order-detail{
+  width:100%;
+}
+
+.cancel{
+  display: flex;
+  margin-top: 30px;
+  border: 1px solid #070707;
+  height: 40px;
+  border-radius: 20px;
+  padding: 0px 10px;
+  align-items: center;
+
+}
+
+@media (max-width:480px) {
+  .user-order-container{
+    flex-direction: column;
+    padding-top: 20px;
+    align-items: center;
+    padding-left: 0px;
+  }
+
+  
+ .order-image{
+  width: 80%;
+ }
+
+ .user-order-detail{
+  width: 80%;
+  margin-bottom: 10px;
+ }
+}

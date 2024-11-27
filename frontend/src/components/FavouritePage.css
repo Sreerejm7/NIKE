@@ -1,0 +1,95 @@
+.fav-container{
+  width: 98vw;
+}
+
+.fav-header{
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.fav-items{
+  display: flex;
+  flex-direction: column;
+}
+
+.fav-img-detail{
+  width: 100%;
+  margin-left: 20px; 
+  margin-bottom: 20px;
+  display: flex;
+  margin-top: 20px;
+}
+
+.fav-img{
+ max-width: 150px;
+ width: 100%;
+ min-height: 150px;
+}
+
+.fav-detail{
+  padding-top: 10px;
+  width: 90%;
+  margin-right: 30px;
+  padding-left: 20px;
+}
+
+.fav-nm-price{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+  align-items: center;
+}
+
+.fav-price{
+  margin: 0;
+}
+
+.fav-btn-div{
+  width: 100%;
+  margin-top: 20px;
+  gap: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.fav-btn{
+  min-width: 120px;
+  width: auto;
+  padding: 0px 10px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid #707070;
+}
+
+.fav-btn-rem{
+  min-width: 120px;
+  width: auto;
+  padding: 0px 10px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid #707070;
+}
+
+
+@media (max-width: 500px){
+  .fav-img-detail{
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0px;
+    
+  }
+
+  .fav-detail{
+    max-width: 300px;
+    width: 100%;
+    margin-left: 30px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+  }
+
+  .fav-img{
+   max-width: 300px;
+   max-height: 300px;
+   width: 100%;
+  }
+}
