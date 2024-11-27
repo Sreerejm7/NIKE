@@ -18,7 +18,7 @@ const ProductOverview = ({ id }) => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`https://nike-swe2.onrender.com/getproduct/${id}`);
+        const response = await axios.get(`http://localhost:4500/getproduct/${id}`);
         const productData = response.data.products;
         setProduct(productData);
         if (productData.image?.length > 0) {
@@ -48,7 +48,7 @@ const ProductOverview = ({ id }) => {
     try {
       const token = localStorage.getItem('UserToken')
       const response = await axios.post(
-        `https://nike-swe2.onrender.com/addtocart/${id}`,
+        `http://localhost:4500/addtocart/${id}`,
         { size: selectedSize },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -70,11 +70,14 @@ const ProductOverview = ({ id }) => {
       const token = localStorage.getItem('UserToken')
       if(!token){
         handleerror("Please Login First")
+        setTimeout(() => {
+          navigate('/signin')
+        }, 2000);
       }
 
       try {
         const token = localStorage.getItem('UserToken')
-        const url = `https://nike-swe2.onrender.com/addtofavourite/${id}`
+        const url = `http://localhost:4500/addtofavourite/${id}`
         const response = await axios.post(url,{size:selectedSize},{headers :{Authorization : `Bearer ${token}`}})
         if(response){
           handlesuccess(response.data.message)
@@ -83,12 +86,11 @@ const ProductOverview = ({ id }) => {
           }, 1500);
         }
       } catch (error) {
-        handleerror("Failed to Add products to Favourite")
+        
       }
   }
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
 
   return (
     <div className="overview-container">
