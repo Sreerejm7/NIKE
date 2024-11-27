@@ -23,7 +23,7 @@ const MemberCheckoutPage = () => {
   useEffect(()=>{
     const fetch= async  () =>{
     const token = localStorage.getItem('UserToken')
-    const url = 'http://localhost:4500/fetchcart'
+    const url = 'https://nike-swe2.onrender.com/fetchcart'
     const response = await axios.get(url,{headers :{Authorization :`Bearer ${token}`}}) 
     if(response){
       setCheckoutProduct(response.data.details)
@@ -68,7 +68,7 @@ const MemberCheckoutPage = () => {
     };
     try {
         const token = localStorage.getItem('UserToken');
-        const response = await axios.post('http://localhost:4500/product/order', orderData, {
+        const response = await axios.post('https://nike-swe2.onrender.com/product/order', orderData, {
             headers: { Authorization: `Bearer ${token}` }
         });
         if (response) {
