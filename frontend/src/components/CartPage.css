@@ -69,6 +69,7 @@
   flex-direction: column;
   max-width: 600px;
   width: 100%;
+  padding-right: 20px;
 }
 
 .cart-summary > h6{
