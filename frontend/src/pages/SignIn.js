@@ -25,7 +25,7 @@ const SignIn = () => {
   const handleSubmit= async(e)=>{
     e.preventDefault()
     try {
-      const url = "http://localhost:4500/loginuser"
+      const url = "https://nike-swe2.onrender.com/loginuser"
       const response = await axios.post(url,loginData)
       const token = response.data.AdminToken || response.data.UserToken;
       if (token) {
