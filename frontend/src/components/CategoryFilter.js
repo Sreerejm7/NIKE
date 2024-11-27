@@ -41,7 +41,7 @@ function CategoryFilter() {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "https://nike-swe2.onrender.com/getallproducts"
+          "http://localhost:4500/getallproducts"
         );
         setShoe(response.data.products);
         setFilteredShoe(response.data.products);
@@ -200,7 +200,7 @@ function CategoryFilter() {
     <div className="CategoryFilter-container">
       <div className="CategoryFilter">
         <div className="shoe-name">
-          <h2>Nike Shoes</h2>
+          <h5>Nike By You({filteredShoe.length})</h5>
         </div>
         <div className="sort-fil">
           <button onClick={toggleFilter} className="hide-filter">
