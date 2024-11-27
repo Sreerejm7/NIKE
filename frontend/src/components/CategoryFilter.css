@@ -114,7 +114,6 @@
 
 .filter-body{
   width: 100%;
-  /* background-color: red; */
   height: 76vh;
   
 }
@@ -123,7 +122,6 @@
   display: grid;
   width: 100%;
   grid-template-columns: repeat(3,1fr);
-  /* background-color: yellow; */
   padding: 20px;
   height: 100%;
   gap: 20px;
