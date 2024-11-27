@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect('mongodb+srv://sreerejsree7:vvdVKGi5bATb4CMy@cluster0.dro1w.mongodb.net/NIKE')
 .then(()=>{
   console.log("Database Connected Sucessfully");
   
