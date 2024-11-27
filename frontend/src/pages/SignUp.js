@@ -21,7 +21,7 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      const url = "http://localhost:4500/createuser";
+      const url = "https://nike-swe2.onrender.com/createuser";
       const response = await axios.post(url, formData);
       if (response) {
         handlesuccess("Registration Sucessfull" || response.data.message);
